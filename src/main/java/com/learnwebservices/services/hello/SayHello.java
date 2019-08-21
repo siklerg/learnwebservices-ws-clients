@@ -1,5 +1,5 @@
 
-package helloWS;
+package com.learnwebservices.services.hello;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for SayHello complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="SayHello">
  *   &lt;complexContent>
@@ -23,12 +23,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SayHello", propOrder = {
-    "helloRequest"
+        "helloRequest"
 })
 public class SayHello {
 
@@ -37,11 +35,9 @@ public class SayHello {
 
     /**
      * Gets the value of the helloRequest property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link HelloRequest }
-     *     
+     *
+     * @return possible object is
+     * {@link HelloRequest }
      */
     public HelloRequest getHelloRequest() {
         return helloRequest;
@@ -49,11 +45,9 @@ public class SayHello {
 
     /**
      * Sets the value of the helloRequest property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link HelloRequest }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link HelloRequest }
      */
     public void setHelloRequest(HelloRequest value) {
         this.helloRequest = value;

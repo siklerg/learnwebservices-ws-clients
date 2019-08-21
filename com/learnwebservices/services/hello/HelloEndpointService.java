@@ -1,5 +1,5 @@
 
-package helloWS;
+package com.learnwebservices.services.hello;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "HelloEndpointService", targetNamespace = "http://learnwebservices.com/services/hello", wsdlLocation = "file:/D:/CODE%20GIT/ws-client/src/wsdl/hello.wsdl")
+@WebServiceClient(name = "HelloEndpointService", targetNamespace = "http://learnwebservices.com/services/hello", wsdlLocation = "file:/D:/CODE%20GIT/ws-client-hello-gen/src/wsdl/hello.wsdl")
 public class HelloEndpointService
     extends Service
 {
@@ -30,7 +30,7 @@ public class HelloEndpointService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/D:/CODE%20GIT/ws-client/src/wsdl/hello.wsdl");
+            url = new URL("file:/D:/CODE%20GIT/ws-client-hello-gen/src/wsdl/hello.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
