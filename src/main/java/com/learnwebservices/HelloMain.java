@@ -1,4 +1,9 @@
-package com.learnwebservices.services.hello;
+package com.learnwebservices;
+
+import com.learnwebservices.services.hello.HelloEndpoint;
+import com.learnwebservices.services.hello.HelloRequest;
+import com.learnwebservices.services.hello.HelloResponse;
+import com.learnwebservices.services.hello.SimpleHelloEndpointService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,7 +20,7 @@ public class HelloMain {
         SimpleHelloEndpointService service = new SimpleHelloEndpointService(url);
         HelloEndpoint port = service.getSimpleHelloEndpointPort();
         HelloRequest request = new HelloRequest();
-        request.setName("John Doe");
+        request.setName("Heki");
         HelloResponse response = port.sayHello(request);
         System.out.println(response.getMessage());
     }
