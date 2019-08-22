@@ -45,7 +45,7 @@
         <wsdl:part element="tns:SayHello" name="parameters">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:portType name="HelloEndpoint">
+    <wsdl:portType name="TempConverterEndpoint">
         <wsdl:operation name="SayHello">
             <wsdl:input message="tns:SayHello" name="SayHello">
             </wsdl:input>
@@ -53,7 +53,7 @@
             </wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
-    <wsdl:binding name="HelloEndpointServiceSoapBinding" type="tns:HelloEndpoint">
+    <wsdl:binding name="HelloEndpointServiceSoapBinding" type="tns:TempConverterEndpoint">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="SayHello">
             <soap:operation soapAction="" style="document"/>

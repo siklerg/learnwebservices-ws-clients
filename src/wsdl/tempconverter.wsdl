@@ -1,0 +1,76 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:ns1="http://learnwebservices.com/services/tempconverter" name="TempConverterEndpoint"
+                  targetNamespace="http://learnwebservices.com/services/tempconverter">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://learnwebservices.com/services/tempconverter" elementFormDefault="qualified"
+                   targetNamespace="http://learnwebservices.com/services/tempconverter" version="1.0">
+            <xs:element name="CelsiusToFahrenheit" type="tns:CelsiusToFahrenheit"/>
+            <xs:element name="CelsiusToFahrenheitResponse" type="tns:CelsiusToFahrenheitResponse"/>
+            <xs:element name="FahrenheitToCelsius" type="tns:FahrenheitToCelsius"/>
+            <xs:element name="FahrenheitToCelsiusResponse" type="tns:FahrenheitToCelsiusResponse"/>
+            <xs:complexType name="CelsiusToFahrenheit">
+                <xs:sequence>
+                    <xs:element name="CelsiusToFahrenheitRequest" type="tns:celsiusToFahrenheitRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="celsiusToFahrenheitRequest">
+                <xs:sequence>
+                    <xs:element name="TemperatureInCelsius" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CelsiusToFahrenheitResponse">
+                <xs:sequence>
+                    <xs:element name="CelsiusToFahrenheitResponse" type="tns:celsiusToFahrenheitResponse"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="celsiusToFahrenheitResponse">
+                <xs:sequence>
+                    <xs:element name="TemperatureInFahrenheit" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FahrenheitToCelsius">
+                <xs:sequence>
+                    <xs:element name="FahrenheitToCelsiusRequest" type="tns:fahrenheitToCelsiusRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="fahrenheitToCelsiusRequest">
+                <xs:sequence>
+                    <xs:element name="TemperatureInFahrenheit" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="FahrenheitToCelsiusResponse">
+                <xs:sequence>
+                    <xs:element name="FahrenheitToCelsiusResponse" type="tns:fahrenheitToCelsiusResponse"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="fahrenheitToCelsiusResponse">
+                <xs:sequence>
+                    <xs:element name="TemperatureInCelsius" type="xs:double"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="CelsiusToFahrenheit">
+        <wsdl:part element="ns1:CelsiusToFahrenheit" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="FahrenheitToCelsius">
+        <wsdl:part element="ns1:FahrenheitToCelsius" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CelsiusToFahrenheitResponse">
+        <wsdl:part element="ns1:CelsiusToFahrenheitResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="FahrenheitToCelsiusResponse">
+        <wsdl:part element="ns1:FahrenheitToCelsiusResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="TempConverterEndpoint">
+        <wsdl:operation name="CelsiusToFahrenheit">
+            <wsdl:input message="ns1:CelsiusToFahrenheit" name="CelsiusToFahrenheit"></wsdl:input>
+            <wsdl:output message="ns1:CelsiusToFahrenheitResponse" name="CelsiusToFahrenheitResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FahrenheitToCelsius">
+            <wsdl:input message="ns1:FahrenheitToCelsius" name="FahrenheitToCelsius"></wsdl:input>
+            <wsdl:output message="ns1:FahrenheitToCelsiusResponse" name="FahrenheitToCelsiusResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
