@@ -7,9 +7,10 @@ import java.net.URL;
 
 @WebServiceClient(name = "TempConverterEndpointService", targetNamespace = "http://tempconverter.services.learnwebservices.com/", wsdlLocation = "http://www.learnwebservices.com/services/tempconverter?wsdl")
 public class TempConverterEndpointService extends Service {
+
     private final static URL TempConverterEndpointService_WSDL_LOCATION;
     private final static WebServiceException TempConverterEndpointService_EXCEPTION;
-    private final static QName TempConverterEndpointService_QNAME = new QName("http://tempconverter.services.learnwebservices.com/", "DelegatingTempConverterEndpointService");
+    private final static QName TempConverterEndpointService_QNAME = new QName("http://learnwebservices.com/services/tempconverter", "TempConverterEndpointService");
 
     static {
         URL url = null;
@@ -50,9 +51,9 @@ public class TempConverterEndpointService extends Service {
     /**
      * @return returns TempConverterEndpoint
      */
-    @WebEndpoint(name = "DelegatingTempConverterEndpointPort")
+    @WebEndpoint(name = "TempConverterEndpointPort")
     public TempConverterEndpoint getTempConverterEndpointPort() {
-        return super.getPort(new QName("http://tempconverter.services.learnwebservices.com/", "DelegatingTempConverterEndpointPort"), TempConverterEndpoint.class);
+        return super.getPort(new QName("http://learnwebservices.com/services/tempconverter", "TempConverterEndpointPort"), TempConverterEndpoint.class);
     }
 
     /**

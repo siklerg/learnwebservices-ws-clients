@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for celsiusToFahrenheitResponse complex type.
+ * <p>Java class for fahrenheitToCelsiusRequest complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="celsiusToFahrenheitResponse"&gt;
+ * &lt;complexType name="fahrenheitToCelsiusRequest"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "celsiusToFahrenheitResponse", namespace = "http://learnwebservices.com/services/tempconverter", propOrder = {
+@XmlType(name = "fahrenheitToCelsiusRequest", namespace = "http://learnwebservices.com/services/tempconverter", propOrder = {
     "temperatureInFahrenheit"
 })
-public class CelsiusToFahrenheitResponse {
+public class FahrenheitToCelsiusRequest {
 
     @XmlElement(name = "TemperatureInFahrenheit", namespace = "http://learnwebservices.com/services/tempconverter")
     protected double temperatureInFahrenheit;

@@ -1,27 +1,15 @@
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:ns1="http://learnwebservices.com/services/tempconverter" name="TempConverterEndpoint"
+                  xmlns:tns="http://learnwebservices.com/services/tempconverter"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  name="TempConverterEndpointService"
                   targetNamespace="http://learnwebservices.com/services/tempconverter">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                   xmlns:tns="http://learnwebservices.com/services/tempconverter" elementFormDefault="qualified"
-                   targetNamespace="http://learnwebservices.com/services/tempconverter" version="1.0">
-            <xs:element name="CelsiusToFahrenheit" type="tns:CelsiusToFahrenheit"/>
-            <xs:element name="CelsiusToFahrenheitResponse" type="tns:CelsiusToFahrenheitResponse"/>
-            <xs:element name="FahrenheitToCelsius" type="tns:FahrenheitToCelsius"/>
-            <xs:element name="FahrenheitToCelsiusResponse" type="tns:FahrenheitToCelsiusResponse"/>
-            <xs:complexType name="CelsiusToFahrenheit">
-                <xs:sequence>
-                    <xs:element name="CelsiusToFahrenheitRequest" type="tns:celsiusToFahrenheitRequest"/>
-                </xs:sequence>
-            </xs:complexType>
+                   xmlns="http://learnwebservices.com/services/tempconverter" attributeFormDefault="unqualified"
+                   elementFormDefault="qualified" targetNamespace="http://learnwebservices.com/services/tempconverter">
             <xs:complexType name="celsiusToFahrenheitRequest">
                 <xs:sequence>
                     <xs:element name="TemperatureInCelsius" type="xs:double"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="CelsiusToFahrenheitResponse">
-                <xs:sequence>
-                    <xs:element name="CelsiusToFahrenheitResponse" type="tns:celsiusToFahrenheitResponse"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="celsiusToFahrenheitResponse">
@@ -29,19 +17,9 @@
                     <xs:element name="TemperatureInFahrenheit" type="xs:double"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:complexType name="FahrenheitToCelsius">
-                <xs:sequence>
-                    <xs:element name="FahrenheitToCelsiusRequest" type="tns:fahrenheitToCelsiusRequest"/>
-                </xs:sequence>
-            </xs:complexType>
             <xs:complexType name="fahrenheitToCelsiusRequest">
                 <xs:sequence>
                     <xs:element name="TemperatureInFahrenheit" type="xs:double"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:complexType name="FahrenheitToCelsiusResponse">
-                <xs:sequence>
-                    <xs:element name="FahrenheitToCelsiusResponse" type="tns:fahrenheitToCelsiusResponse"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="fahrenheitToCelsiusResponse">
@@ -49,28 +27,58 @@
                     <xs:element name="TemperatureInCelsius" type="xs:double"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:element name="CelsiusToFahrenheitRequest" nillable="true" type="celsiusToFahrenheitRequest"/>
+            <xs:element name="CelsiusToFahrenheitResponse" nillable="true" type="celsiusToFahrenheitResponse"/>
+            <xs:element name="FahrenheitToCelsiusRequest" nillable="true" type="fahrenheitToCelsiusRequest"/>
+            <xs:element name="FahrenheitToCelsiusResponse" nillable="true" type="fahrenheitToCelsiusResponse"/>
         </xs:schema>
     </wsdl:types>
     <wsdl:message name="CelsiusToFahrenheit">
-        <wsdl:part element="ns1:CelsiusToFahrenheit" name="parameters"></wsdl:part>
+        <wsdl:part element="tns:CelsiusToFahrenheitRequest" name="CelsiusToFahrenheitRequest"></wsdl:part>
     </wsdl:message>
     <wsdl:message name="FahrenheitToCelsius">
-        <wsdl:part element="ns1:FahrenheitToCelsius" name="parameters"></wsdl:part>
+        <wsdl:part element="tns:FahrenheitToCelsiusRequest" name="FahrenheitToCelsiusRequest"></wsdl:part>
     </wsdl:message>
     <wsdl:message name="CelsiusToFahrenheitResponse">
-        <wsdl:part element="ns1:CelsiusToFahrenheitResponse" name="parameters"></wsdl:part>
+        <wsdl:part element="tns:CelsiusToFahrenheitResponse" name="CelsiusToFahrenheitResponse"></wsdl:part>
     </wsdl:message>
     <wsdl:message name="FahrenheitToCelsiusResponse">
-        <wsdl:part element="ns1:FahrenheitToCelsiusResponse" name="parameters"></wsdl:part>
+        <wsdl:part element="tns:FahrenheitToCelsiusResponse" name="FahrenheitToCelsiusResponse"></wsdl:part>
     </wsdl:message>
     <wsdl:portType name="TempConverterEndpoint">
         <wsdl:operation name="CelsiusToFahrenheit">
-            <wsdl:input message="ns1:CelsiusToFahrenheit" name="CelsiusToFahrenheit"></wsdl:input>
-            <wsdl:output message="ns1:CelsiusToFahrenheitResponse" name="CelsiusToFahrenheitResponse"></wsdl:output>
+            <wsdl:input message="tns:CelsiusToFahrenheit" name="CelsiusToFahrenheit"></wsdl:input>
+            <wsdl:output message="tns:CelsiusToFahrenheitResponse" name="CelsiusToFahrenheitResponse"></wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="FahrenheitToCelsius">
-            <wsdl:input message="ns1:FahrenheitToCelsius" name="FahrenheitToCelsius"></wsdl:input>
-            <wsdl:output message="ns1:FahrenheitToCelsiusResponse" name="FahrenheitToCelsiusResponse"></wsdl:output>
+            <wsdl:input message="tns:FahrenheitToCelsius" name="FahrenheitToCelsius"></wsdl:input>
+            <wsdl:output message="tns:FahrenheitToCelsiusResponse" name="FahrenheitToCelsiusResponse"></wsdl:output>
         </wsdl:operation>
     </wsdl:portType>
+    <wsdl:binding name="TempConverterEndpointServiceSoapBinding" type="tns:TempConverterEndpoint">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CelsiusToFahrenheit">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="CelsiusToFahrenheit">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CelsiusToFahrenheitResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="FahrenheitToCelsius">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="FahrenheitToCelsius">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="FahrenheitToCelsiusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TempConverterEndpointService">
+        <wsdl:port binding="tns:TempConverterEndpointServiceSoapBinding" name="TempConverterEndpointPort">
+            <soap:address location="http://www.learnwebservices.com/services/tempconverter"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>
